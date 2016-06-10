@@ -1,0 +1,36 @@
+<div>
+  <h1>{{hello}}</h1>
+  <input type="text" ng-model="hello"/>
+</div>
+
+<input type="text" ng-model="first.greeting.message"/>
+<div ng-class="first.greeting.message">
+  {{ first.greeting.message }} {{ "World" }}
+</div>
+
+<div ui-sref="second">Go to second</div>
+
+<div>
+  <input type="text" ng-model="search.name"/>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="month in months.list | filter:search | orderBy:'name' | limitTo:5">
+        <td>{{month.num}}</td>
+        <td>{{month.name | uppercase}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div my-first-directive="" message="Mom!"></div>
+<div my-first-directive="" message="Dad!"></div>
+<div my-first-directive="" message="Superman!"></div>
+<div my-first-directive="" message="John!"></div>
+<div my-first-directive="" message="Mom!"></div>
+<div my-first-directive="" message="Mom!"></div>
