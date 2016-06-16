@@ -116,6 +116,7 @@ angular.module("app", ["ui.router"])
     $scope.callHome = function (message) {
       alert(message);
     };
+    $scope.ctrlFlavour = "blackberry";
   })
   .directive("kid", function () {
     return {
@@ -135,5 +136,13 @@ angular.module("app", ["ui.router"])
       },
       template: '<input type="text" ng-model="value"/>' +
         '<div class="button" ng-click="dial({message:value})">Call home!</div>'
+    };
+  })
+  .directive("drink", function () {
+    return {
+      scope: {
+        flavour: "="
+      },
+      template: '<input type="text" ng-model="flavour"/>'
     };
   });
