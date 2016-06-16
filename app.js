@@ -68,22 +68,24 @@ angular.module("app", ["ui.router"])
     };
   })
 
-  // Basic Behaviors
+  // Basic/Useful Behaviours
   .directive("enter", function () {
     // return {
     //   restrict: "A"            // this is the default
     //   link:     function () {} // if this is all, don't need the object
     // };
-    return function (scope, element) {
+    return function (scope, element, attrs) {
       element.bind("mouseenter", function () {
         console.log("I'm inside of you");
+        element.addClass(attrs.enter);
       });
     };
   })
   .directive("leave", function () {
-    return function (scope, element) {
+    return function (scope, element, attrs) {
       element.bind("mouseleave", function () {
         console.log("I'm leaving on a jet plane");
+        element.removeClass(attrs.enter);
       });
     };
   });
