@@ -145,4 +145,12 @@ angular.module("app", ["ui.router"])
       },
       template: '<input type="text" ng-model="flavour"/>'
     };
+  })
+  .directive("icecream", function () {
+    return {
+      scope: {
+        flavour: "@"
+      },
+      template: '<div>{{flavour}}</div>'
+    };
   });
