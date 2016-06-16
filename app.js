@@ -47,6 +47,24 @@ angular.module("app", ["ui.router"])
     };
   })
 
+  // Directive Restrictions
+  .directive("batman", function () {
+    return {
+      restrict: "M",
+      link: function () {
+        alert("I'm working");
+      }
+    };
+  })
+  .directive("flash", function () {
+    return {
+      restrict: "C",
+      link: function () {
+        alert("I'm working faster");
+      }
+    };
+  })
+
   .directive("myFirstDirective", function () {
     return function (scope, element, attrs) {
       element.text(scope.first.greeting.message + " " + attrs.message);
