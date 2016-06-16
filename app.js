@@ -66,4 +66,24 @@ angular.module("app", ["ui.router"])
     $scope.reversedMessage = function reversedMessage(message) {
       return message.split("").reverse().join("");
     };
+  })
+
+  // Basic Behaviors
+  .directive("enter", function () {
+    // return {
+    //   restrict: "A"            // this is the default
+    //   link:     function () {} // if this is all, don't need the object
+    // };
+    return function (scope, element) {
+      element.bind("mouseenter", function () {
+        console.log("I'm inside of you");
+      });
+    };
+  })
+  .directive("leave", function () {
+    return function (scope, element) {
+      element.bind("mouseleave", function () {
+        console.log("I'm leaving on a jet plane");
+      });
+    };
   });
