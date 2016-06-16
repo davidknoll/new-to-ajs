@@ -108,10 +108,13 @@ angular.module("app", ["ui.router"])
     };
   })
 
-  // Understanding Isolate Scope
+  // Understanding Isolate Scope / &
   .controller("ChoreCtrl", function ($scope) {
     $scope.logChore = function (chore) {
       alert(chore + " is done!");
+    };
+    $scope.callHome = function (message) {
+      alert(message);
     };
   })
   .directive("kid", function () {
@@ -123,5 +126,14 @@ angular.module("app", ["ui.router"])
       template: '<input type="text" ng-model="chore"/>' +
         ' {{chore}}' +
         ' <div class="button" ng-click="done({chore:chore})">I\'m done!</div>'
+    };
+  })
+  .directive("phone", function () {
+    return {
+      scope: {
+        dial: "&"
+      },
+      template: '<input type="text" ng-model="value"/>' +
+        '<div class="button" ng-click="dial({message:value})">Call home!</div>'
     };
   });
