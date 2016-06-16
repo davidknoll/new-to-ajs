@@ -108,7 +108,7 @@ angular.module("app", ["ui.router"])
     };
   })
 
-  // Understanding Isolate Scope / &
+  // Understanding Isolate Scope / & / = / @
   .controller("ChoreCtrl", function ($scope) {
     $scope.logChore = function (chore) {
       alert(chore + " is done!");
@@ -152,5 +152,19 @@ angular.module("app", ["ui.router"])
         flavour: "@"
       },
       template: '<div>{{flavour}}</div>'
+    };
+  })
+
+  .directive("debug", function ($compile) {
+    return {
+      terminal: true,
+      priority: 1000000,
+      link: function (scope, element) {
+        var clone = element.clone();
+        element.attr("style", "color:red");
+        clone.removeAttr("debug");
+        var clonedElement = $compile(clone)(scope);
+        element.after(clonedElement);
+      }
     };
   });
